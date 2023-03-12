@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
+from pyrogram.enums import ChatAction
 import requests
 import random
 import os
@@ -18,149 +19,128 @@ UPDATE_CHNL = os.environ.get("UPDATE_CHNL")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME")
 SUPPORT_GRP = os.environ.get("SUPPORT_GRP")
 BOT_NAME = os.environ.get("BOT_NAME")
-START_IMG1 = os.environ.get("START_IMG1")
-START_IMG2 = os.environ.get("START_IMG2", None)
-START_IMG3 = os.environ.get("START_IMG3", None)
-START_IMG4 = os.environ.get("START_IMG4", None)
-START_IMG5 = os.environ.get("START_IMG5", None)
-START_IMG6 = os.environ.get("START_IMG6", None)
-START_IMG7 = os.environ.get("START_IMG7", None)
-START_IMG8 = os.environ.get("START_IMG8", None)
-START_IMG9 = os.environ.get("START_IMG9", None)
-START_IMG10 = os.environ.get("START_IMG10", None)
-STKR = os.environ.get("STKR")
-STKR1 = os.environ.get("STKR1", None)
-STKR2 = os.environ.get("STKR2", None)
-STKR3 = os.environ.get("STKR3", None)
-STKR4 = os.environ.get("STKR4", None)
-STKR5 = os.environ.get("STKR5", None)
-STKR6 = os.environ.get("STKR6", None)
-STKR7 = os.environ.get("STKR7", None)
-STKR8 = os.environ.get("STKR8", None)
-STKR9 = os.environ.get("STKR9", None)
+START_IMG = os.environ.get("START_IMG1")
 
-bot = Client(
-    "VickBot" ,
+STKR = os.environ.get("STKR")
+
+
+StartTime = time.time()
+Mukesh = Client(
+    "chat-gpt" ,
     api_id = API_ID,
     api_hash = API_HASH ,
     bot_token = BOT_TOKEN
 )
-
-
-async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in bot.iter_chat_members(
-            chat_id, filter="administrators"
-        )
-    ]
-
-
-PHOTO = [
-    START_IMG1,
-    START_IMG2,
-    START_IMG3,
-    START_IMG4,
-    START_IMG5,
-    START_IMG6,
-    START_IMG7,
-    START_IMG8,
-    START_IMG9,
-    START_IMG10,
-]
-
-EMOJIOS = [ 
-      "💣",
-      "💥",
-      "🪄",
-      "🧨",
-      "⚡",
-      "🤡",
-      "👻",
-      "🎃",
-      "🎩",
-      "🕊",
-]
-      
-STICKER = [
-      STKR,
-      STKR1,
-      STKR2,
-      STKR3,
-      STKR4,
-      STKR5,
-      STKR6,
-      STKR7,
-      STKR8,
-      STKR9,
-]
-START = f"""
+START f"""
 **๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]({START_IMG1})**
-**➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
+**➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
 **──────────────────**
 **➻ ᴜsᴀɢᴇ /chatbot [on/off]**
 **๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**
 """
-DEV_OP = [
+SOURCE_TEXT = f"""
+**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]
+➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.
+──────────────────
+ᴄʟɪᴄᴋ ʙᴇʟᴏᴡ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ᴛʜᴇ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ**
+"""
+SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', callback_data='hurr')], [InlineKeyboardButton(" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"), InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK")]])
+SOURCE = 'https://github.com/Noob-mukesh/Chatbot'
+x=["❤️","🎉","✨","🪸","🎉","🎈","🎯"]
+g=choice(x)
+MAIN = [
     [
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴘᴇʀ 🥀", url=f"https://t.me/{OWNER_USERNAME}"),
-        InlineKeyboardButton(text="✨ ꜱᴜᴘᴘᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_GRP}"),
+        InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
+        InlineKeyboardButton(text=" ꜱᴜᴘᴘᴏʀᴛ ", url=f"https://t.me/{SUPPORT_GRP}"),
     ],
     [
         InlineKeyboardButton(
-            text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
+            text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="🚀 ʜᴇʟᴘ & ᴄᴍᴅs 🚀", callback_data="HELP"),
+        InlineKeyboardButton(text="ʜᴇʟᴘ & ᴄᴍᴅs ", callback_data="HELP"),
     ],
     [
-        InlineKeyboardButton(text="❄️ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ❄️", url=f"https://github.com/noob-mukesh/powerfulchatbot"),
-        InlineKeyboardButton(text="☁️ ᴜᴘᴅᴀᴛᴇs ☁️", url=f"https://t.me/{UPDATE_CHNL}"),
+        InlineKeyboardButton(text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ", callback_data='source'),
+        InlineKeyboardButton(text=" ᴜᴘᴅᴀᴛᴇs ", url=f"https://t.me/{UPDATE_CHNL}"),
     ],
 ]
 PNG_BTN = [
     [
          InlineKeyboardButton(
-             text="🧸 ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ 🧸",
+             text="ᴀᴅᴅ ᴍᴇ ʙᴀʙʏ",
              url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
          ),
      ],
      [
-         InlineKeyboardButton(text="✨ sᴜᴘᴘᴏʀᴛ ✨", 
+         InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ", 
                               url=f"https://t.me/{SUPPORT_GRP}",
          ),
      ],
 ]
-HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n**©️ @mr_sukkun**"
+
+HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @mr_sukkun||"
 HELP_BACK = [
      [
-           InlineKeyboardButton(text="✨ ʙᴀᴄᴋ ✨", callback_data="HELP_BACK"),
+           InlineKeyboardButton(text="Qᴜᴇꜱᴛɪᴏɴ ᴛʜᴀᴛ ᴄʜᴀᴛɢᴘᴛ ᴄᴀɴ ꜱᴏʟᴠᴇ ", url="https://t.me/mr_sukkun/528"),
+           
      ],
+    [
+           InlineKeyboardButton(text="ʙᴀᴄᴋ ", callback_data="HELP_BACK"),
+    ],
 ]
-@bot.on_message(filters.command(["start", "aistart", f"start@{BOT_USERNAME}"]))
+@Mukesh.on_message(filters.incoming & filters.private, group=-1)
+async def must_join_channel(bot: Client, msg: Message):
+    if not UPDATE_CHNL:
+        return
+    try:
+        try:
+            await bot.get_chat_member(UPDATE_CHNL, msg.from_user.id)
+        except UserNotParticipant:
+            if UPDATE_CHNL.isalpha():
+                link = "https://t.me/" + UPDATE_CHNL
+            else:
+                chat_info = await bot.get_chat(UPDATE_CHNL)
+                link = chat_info.invite_link
+            try:
+                await msg.reply_photo(
+                    photo=START_IMG, caption=f"» ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍʏ ᴅᴀᴛᴀʙᴀsᴇ ʏᴏᴜ'ᴠᴇ ɴᴏᴛ ᴊᴏɪɴᴇᴅ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ʏᴇᴛ, ɪғ ʏᴏᴜ ᴡᴀɴᴛ ᴛᴏ ᴜsᴇ ᴍᴇ ᴛʜᴇɴ ᴊᴏɪɴ [ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ]({link}) ᴀɴᴅ sᴛᴀʀᴛ ᴍᴇ ᴀɢᴀɪɴ !",
+                    reply_markup=InlineKeyboardMarkup(
+                        [
+                            [
+                                InlineKeyboardButton("ᴜᴘᴅᴀᴛᴇ ᴄʜᴀɴɴᴇʟ", url=link),
+                            ]
+                        ]
+                    )
+                )
+                await msg.stop_propagation()
+            except ChatWriteForbidden:
+                pass
+    except ChatAdminRequired:
+        print(f"Promote me as an admin in the UPDATE CHANNEL  : {UPDATE_CHNL} !")
+@Mukesh.on_message(filters.command(["start",f"start@{BOT_USERNAME}"]))
 async def restart(client, m: Message):
-    accha = await m.reply_text(
-                text = random.choice(EMOJIOS),
-    )
-    await asyncio.sleep(1)
-    await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ ѕтαятιиg..__")
-    await asyncio.sleep(0.2)
-    await accha.edit("__ᴅιиg ᴅσиg ꨄ︎ sтαятιиg..__")
-    await asyncio.sleep(0.2)
-    await accha.delete()
-    umm = await m.reply_sticker(
-              sticker = STKR,
-    )
-    await asyncio.sleep(2)
-    await umm.delete()
-    await m.reply_photo(
-        photo = START_IMG1,
-        caption=f"""**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}](t.me/{BOT_USERNAME})**\n**➻ ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**\n**──────────────────**\n**➻ ᴜsᴀɢᴇ /chatbot [on/off]**\n**๏ ᴛᴏ ɢᴇᴛ ʜᴇʟᴘ ᴜsᴇ /help**""",
-        reply_markup=InlineKeyboardMarkup(DEV_OP),
-    )
-@bot.on_callback_query()
+        accha = await m.reply_text(
+                        text = f"{g}")
+        await asyncio.sleep(1)
+        await accha.edit("ᴘɪɴɢ ᴘᴏɴɢ ꜱᴛᴀʀᴛɪɴɢ..")
+        await asyncio.sleep(0.5)
+        await accha.edit("ᴜᴍ ꜱᴛᴀʀᴛɪɴɢ..")
+        await asyncio.sleep(0.5)
+        await accha.delete()
+        umm = await m.reply_sticker(
+                  sticker = STKR,
+        )
+        await asyncio.sleep(1)
+        await umm.delete()
+        await m.reply_photo(
+            photo = START_IMG,
+            caption=START,
+            reply_markup=InlineKeyboardMarkup(MAIN),
+        )
+@Mukesh.on_callback_query()
 async def cb_handler(Client, query: CallbackQuery):
     if query.data == "HELP":
      await query.message.edit_text(
@@ -170,16 +150,24 @@ async def cb_handler(Client, query: CallbackQuery):
     elif query.data == "HELP_BACK":
             await query.message.edit(
                   text = START,
-                  reply_markup=InlineKeyboardMarkup(DEV_OP),
+                  reply_markup=InlineKeyboardMarkup(MAIN),
         )
-@bot.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["+", ".", "/", "-", "?", "$"]))
+    elif query.data == 'source':
+        await query.message.edit_text(SOURCE_TEXT, reply_markup=SOURCE_BUTTONS)
+    elif query.data == 'hurr':
+        await query.answer()
+        await query.message.reply(SOURCE)
+@Mukesh.on_message(filters.command(["help", f"help@{BOT_USERNAME}"], prefixes=["","+", ".", "/", "-", "?", "$"]))
 async def restart(client, message):
     hmm = await message.reply_text(
                         text = HELP_READ,
                         reply_markup= InlineKeyboardMarkup(HELP_BACK),
        )
-
-@bot.on_message(filters.command(["ping","alive"], prefixes=["+", "/", "-", "?", "$", "&"]))
+@Mukesh.on_message(filters.command(['source', 'repo']))
+async def source(bot, m):
+    await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
+#  alive
+@Mukesh.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
 async def ping(client, message: Message):
         start = datetime.now()
         t = "__ριиgιиg...__"
@@ -191,12 +179,12 @@ async def ping(client, message: Message):
         end = datetime.now()
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
-                             photo=START_IMG1,
-                             caption=f"нey вαву!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ιѕ alιve 🥀 αnd worĸιng ғιne wιтн a pιng oғ\n➥ `{ms}` ms\n\n**мαdє ωιтн ❣️ ву [ᴍᴜᴋᴇsʜ](https://t.me/itz_mst_boi)**",
+                             photo=START_IMG,
+                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [ᴍᴜᴋᴇsʜ](https://t.me/itz_legend_coder)||**",
                              reply_markup=InlineKeyboardMarkup(PNG_BTN),
        )
 
-@bot.on_message(
+@Mukesh.on_message(
     filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbotofd(client, message):
@@ -219,7 +207,7 @@ async def chatbotofd(client, message):
         await message.reply_text(f"ChatBot Already Disabled")
     
 
-@bot.on_message(
+@Mukesh.on_message(
     filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatboton(client, message):
@@ -242,14 +230,14 @@ async def chatboton(client, message):
         await message.reply_text(f"ChatBot Enabled!")
     
 
-@bot.on_message(
+@Mukesh.on_message(
     filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbot(client, message):
     await message.reply_text(f"**ᴜsᴀɢᴇ:**\n/**chatbot [on/off]**\n**ᴄʜᴀᴛ-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ(s) ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!**")
 
 
-@bot.on_message(
+@Mukesh.on_message(
  (
         filters.text
         | filters.sticker
@@ -267,7 +255,7 @@ async def vickai(client: Client, message: Message):
        vick = vickdb["VickDb"]["Vick"] 
        is_vick = vick.find_one({"chat_id": message.chat.id})
        if not is_vick:
-           await bot.send_chat_action(message.chat.id, "typing")
+           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
            K = []  
            is_chat = chatai.find({"word": message.text})  
            k = chatai.find_one({"word": message.text})      
@@ -315,7 +303,7 @@ async def vickai(client: Client, message: Message):
                    chatai.insert_one({"word": message.reply_to_message.text, "text": message.text, "check": "none"})    
                
 
-@bot.on_message(
+@Mukesh.on_message(
  (
         filters.sticker
         | filters.text
@@ -382,7 +370,7 @@ async def vickstickerai(client: Client, message: Message):
                
 
 
-@bot.on_message(
+@Mukesh.on_message(
     (
         filters.text
         | filters.sticker
@@ -425,7 +413,7 @@ async def vickprivate(client: Client, message: Message):
                await message.reply_text(f"{hey}")
        
 
-@bot.on_message(
+@Mukesh.on_message(
  (
         filters.sticker
         | filters.text
