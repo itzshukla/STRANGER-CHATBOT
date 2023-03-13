@@ -19,7 +19,7 @@ UPDATE_CHNL = os.environ.get("UPDATE_CHNL")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME")
 SUPPORT_GRP = os.environ.get("SUPPORT_GRP")
 BOT_NAME = os.environ.get("BOT_NAME")
-START_IMG = os.environ.get("START_IMG1")
+START_IMG = os.environ.get("START_IMG")
 
 STKR = os.environ.get("STKR")
 
