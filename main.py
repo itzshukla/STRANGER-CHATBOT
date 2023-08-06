@@ -275,7 +275,7 @@ async def vickai(client: Client, message: Message):
        vickdb = MongoClient(MONGO_URL)
        vick = vickdb["VickDb"]["Vick"] 
        is_vick = vick.find_one({"chat_id": message.chat.id})    
-       getme = await bot.get_me()
+       getme = await Mukesh.get_me()
        bot_id = getme.id                             
        if message.reply_to_message.from_user.id == bot_id: 
            if not is_vick:                   
@@ -341,7 +341,7 @@ async def vickstickerai(client: Client, message: Message):
        vickdb = MongoClient(MONGO_URL)
        vick = vickdb["VickDb"]["Vick"] 
        is_vick = vick.find_one({"chat_id": message.chat.id})
-       getme = await bot.get_me()
+       getme = await Mukesh.get_me()
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
            if not is_vick:                    
@@ -397,7 +397,7 @@ async def vickprivate(client: Client, message: Message):
        if not Yo == "sticker":
            await message.reply_text(f"{hey}")
    if message.reply_to_message:            
-       getme = await bot.get_me()
+       getme = await Mukesh.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
            await Mukesh.send_chat_action(message.chat.id, ChatAction.TYPING)
@@ -440,7 +440,7 @@ async def vickprivatesticker(client: Client, message: Message):
        if not Yo == "text":
            await message.reply_sticker(f"{hey}")
    if message.reply_to_message:            
-       getme = await bot.get_me()
+       getme = await Mukesh.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
            await Mukesh.send_chat_action(message.chat.id, ChatAction.TYPING)
