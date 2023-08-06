@@ -10,7 +10,7 @@ import re
 import asyncio
 import time
 from datetime import datetime
-
+from pyrogram import enums
 API_ID = os.environ.get("API_ID", None) 
 API_HASH = os.environ.get("API_HASH", None) 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
@@ -52,8 +52,8 @@ g=choice(x)
 async def is_admins(chat_id: int):
     return [
         member.user.id
-        async for member in bot.iter_chat_members(
-            chat_id, filter="administrators"
+        async for member in Mukesh.get_chat_members(
+            chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS
         )
     ]
 
