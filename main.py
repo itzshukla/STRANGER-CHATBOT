@@ -457,4 +457,4 @@ async def vickprivatesticker(client: Client, message: Message):
                await message.reply_sticker(f"{hey}")
 
 print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ!")      
-bot.run()
+Mukesh.run()
