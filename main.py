@@ -32,7 +32,7 @@ Mukesh = Client(
     bot_token = BOT_TOKEN
 )
 START =f"""
-**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]({START_IMG1})**
+**๏ ʜᴇʏ, ɪ ᴀᴍ [{BOT_NAME}]({START_IMG})**
 **➻ᴀɴ ᴀɪ-ʙᴀsᴇᴅ ᴄʜᴀᴛʙᴏᴛ.**
 **──────────────────**
 **➻ ᴜsᴀɢᴇ /chatbot [on/off]**
