@@ -49,6 +49,14 @@ SOURCE_BUTTONS = InlineKeyboardMarkup([[InlineKeyboardButton('sᴏᴜʀᴄᴇ', 
 SOURCE = 'https://github.com/Noob-mukesh/Chatbot'
 x=["❤️","🎉","✨","🪸","🎉","🎈","🎯"]
 g=choice(x)
+async def is_admins(chat_id: int):
+    return [
+        member.user.id
+        async for member in bot.iter_chat_members(
+            chat_id, filter="administrators"
+        )
+    ]
+
 MAIN = [
     [
         InlineKeyboardButton(text="ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/{OWNER_USERNAME}"),
