@@ -18,7 +18,7 @@ MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHIVANSH474")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","SHIVANSH39")
-SUPPORT_GRP = os.environ.get("SUPPORT_GRP","mastiwithfriendsx")
+SUPPORT_GRP = os.environ.get("SUPPORT_GRP","MASTIWITHFRIENDSXD")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","")
 
@@ -173,7 +173,7 @@ async def restart(client, message):
 async def source(bot, m):
     await m.reply_photo(START_IMG, caption=SOURCE_TEXT, reply_markup=SOURCE_BUTTONS, reply_to_message_id=m.id)
 #  alive
-@Mukesh.on_message(filters.command(["ping","alive"], prefixes=["","+", "/", "-", "?", "$", "&","."]))
+@Mukesh.on_message(filters.command(["ping","alive"], prefixes=["/"]))
 async def ping(client, message: Message):
         start = datetime.now()
         t = "__ριиgιиg...__"
@@ -191,7 +191,7 @@ async def ping(client, message: Message):
        )
 
 @Mukesh.on_message(
-    filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/", ".", "?", "-"])
+    filters.command(["chatbot off", f"chatbot@{BOT_USERNAME} off"], prefixes=["/"])
     & ~filters.private)
 async def chatbotofd(client, message):
     vickdb = MongoClient(MONGO_URL)    
@@ -214,7 +214,7 @@ async def chatbotofd(client, message):
     
 
 @Mukesh.on_message(
-    filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/", ".", "?", "-"])
+    filters.command(["chatbot on", f"chatbot@{BOT_USERNAME} on"] ,prefixes=["/"])
     & ~filters.private)
 async def chatboton(client, message):
     vickdb = MongoClient(MONGO_URL)    
@@ -237,7 +237,7 @@ async def chatboton(client, message):
     
 
 @Mukesh.on_message(
-    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/", ".", "?", "-"])
+    filters.command(["chatbot", f"chatbot@{BOT_USERNAME}"], prefixes=["/"])
     & ~filters.private)
 async def chatbot(client, message):
     await message.reply_text(f"**ᴜsᴀɢᴇ:**\n/**chatbot [on/off]**\n**ᴄʜᴀᴛ-ʙᴏᴛ ᴄᴏᴍᴍᴀɴᴅ(s) ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!**")
