@@ -22,7 +22,7 @@ SUPPORT_GRP = os.environ.get("SUPPORT_GRP","MASTIWITHFRIENDSXD")
 BOT_NAME = os.environ.get("BOT_NAME","CHATBOT")
 START_IMG = os.environ.get("START_IMG","https://graph.org/file/6ccfbda0b79239188c14c.jpg")
 
-STKR = os.environ.get("STKR")
+STKR = os.environ.get("STKR","CAACAgEAAx0Cd5L74gAClqVmhNlbqSgKMe5TIswcgft9l6uSpgACEQMAAlEpDTnGkK-OP8PZpzUE")
 
 
 StartTime = time.time()
