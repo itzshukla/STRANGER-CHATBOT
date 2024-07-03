@@ -28,9 +28,9 @@ STKR = os.environ.get("STKR")
 StartTime = time.time()
 Mukesh = Client(
     "chat-gpt" ,
-    api_id = API_ID
-    api_hash = API_HASH
-    bot_token = BOT_TOKEN
+    api_id = 26480985
+    api_hash = '56c935fae1c5c86ba5a3af655f8caa9d'
+    bot_token = '7167158774:AAGEdIjUMO2ro-GoHayd2BV_6o4rADuplH0'
 )
 START =f"""
 **๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
