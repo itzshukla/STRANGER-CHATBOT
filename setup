@@ -102,7 +102,6 @@ pprint "\nEnter Your Values Below\n\n\n"
 pprint "API ID: "; color_reset; read api_id
 pprint "\nAPI HASH: "; color_reset; read api_hash
 pprint "\nBOT TOKEN: "; color_reset; read bot_token
-pprint "\nMONGO URI: "; color_reset; read mongo_db
 
 pprint "\n\nProcessing your vars, wait a while !" "cgreen"
 
@@ -112,8 +111,7 @@ fi
 
 echo """API_ID = $api_id
 API_HASH = $api_hash
-BOT_TOKEN = $bot_token
-MONGO_URI = $mongo_db""" > .env
+BOT_TOKEN = $bot_token""" > .env
 clear
 
 pprint "\n\n\nThanks for using STRANGER-CHATBOT installer, your vars have been saved successfully ! \nIf you wanna add more variables add them in your env by : vi .env"
