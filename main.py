@@ -11,10 +11,10 @@ import asyncio
 import time
 from datetime import datetime
 from pyrogram import enums
-API_ID = os.environ.get("API_ID", None) 
-API_HASH = os.environ.get("API_HASH", None) 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
-MONGO_URL = os.environ.get("MONGO_URL", None)
+API_ID = os.environ.get("API_ID", "27383453") 
+API_HASH = os.environ.get("API_HASH", "4c246fb0c649477cc2e79b6a178ddfaa") 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7167158774:AAGEdIjUMO2ro-GoHayd2BV_6o4rADuplH0") 
+MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://SHASHANK:STRANGER@shashank.uj7lold.mongodb.net/?retryWrites=true&w=majority")
 BOT_USERNAME = os.environ.get("BOT_USERNAME","ITZ_MERADHIKABOT") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHIVANSH474")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","SHIVANSHDEVS")
@@ -28,9 +28,9 @@ STKR = os.environ.get("STKR")
 StartTime = time.time()
 Mukesh = Client(
     "chat-gpt" ,
-    api_id = "27383453"
-    api_hash = "4c246fb0c649477cc2e79b6a178ddfaa"
-    bot_token = "7167158774:AAGEdIjUMO2ro-GoHayd2BV_6o4rADuplH0"
+    api_id = API_ID
+    api_hash = API_HASH
+    bot_token = BOT_TOKEN
 )
 START =f"""
 **๏ ʜᴇʏ, ɪ ᴀᴍ {BOT_NAME}**
