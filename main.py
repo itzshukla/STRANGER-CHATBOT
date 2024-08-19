@@ -15,6 +15,9 @@ from pyrogram import enums
 API_ID = os.environ.get("API_ID","27838385") 
 API_HASH = os.environ.get("API_HASH","0710bd2a89a41c3506f98f7e6fd7294a") 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
+# Set custom DNS resolver
+dns.resolver.default_resolver = dns.resolver.Resolver(configure=False)
+dns.resolver.default_resolver.nameservers = ['8.8.8.8']  # Google DNS
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://teamdaxx123:teamdaxx123@cluster0.ysbpgcp.mongodb.net/?retryWrites=true&w=majority")
 BOT_USERNAME = os.environ.get("BOT_USERNAME","ITZ_MERADHIKABOT") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHIVANSH474")
