@@ -6,6 +6,7 @@ import requests
 import random
 from random import choice
 import os
+import dns.resolver
 import re
 import asyncio
 import time
