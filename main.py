@@ -14,7 +14,7 @@ from pyrogram import enums
 API_ID = os.environ.get("API_ID","27838385") 
 API_HASH = os.environ.get("API_HASH","0710bd2a89a41c3506f98f7e6fd7294a") 
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
-MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://SHASHANK:STRANGER@shashank.uj7lold.mongodb.net/?retryWrites=true&w=majority")
+MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://teamdaxx123:teamdaxx123@cluster0.ysbpgcp.mongodb.net/?retryWrites=true&w=majority")
 BOT_USERNAME = os.environ.get("BOT_USERNAME","ITZ_MERADHIKABOT") 
 UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHIVANSH474")
 OWNER_USERNAME = os.environ.get("OWNER_USERNAME","SHIVANSHDEVS")
