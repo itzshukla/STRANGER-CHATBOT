@@ -16,8 +16,8 @@ API_HASH = os.environ.get("API_HASH", None)
 BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
 MONGO_URL = os.environ.get("MONGO_URL", None)
 BOT_USERNAME = os.environ.get("BOT_USERNAME","") 
-UPDATE_CHNL = os.environ.get("UPDATE_CHNL","SHIVANSH474")
-OWNER_USERNAME = os.environ.get("OWNER_USERNAME","SHIVANSHDEVS")
+UPDATE_CHNL = os.environ.get("UPDATE_CHNL","itszShukla")
+OWNER_USERNAME = os.environ.get("OWNER_USERNAME","SHASHANKDEVS")
 SUPPORT_GRP = os.environ.get("SUPPORT_GRP","MASTIWITHFRIENDSXD")
 BOT_NAME = os.environ.get("BOT_NAME","RADHIKA")
 START_IMG = os.environ.get("START_IMG","")
@@ -90,7 +90,7 @@ PNG_BTN = [
      ],
 ]
 
-HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @SHIVANSHDEVS||"
+HELP_READ = "**ᴜsᴀɢᴇ ☟︎︎︎**\n**➻ ᴜsᴇ** `/chatbot on` **ᴛᴏ ᴇɴᴀʙʟᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**➻ ᴜsᴇ** `/chatbot off` **ᴛᴏ ᴅɪsᴀʙʟᴇ ᴛʜᴇ ᴄʜᴀᴛʙᴏᴛ.**\n**๏ ɴᴏᴛᴇ ➻ ʙᴏᴛʜ ᴛʜᴇ ᴀʙᴏᴠᴇ ᴄᴏᴍᴍᴀɴᴅs ғᴏʀ ᴄʜᴀᴛ-ʙᴏᴛ ᴏɴ/ᴏғғ ᴡᴏʀᴋ ɪɴ ɢʀᴏᴜᴘ ᴏɴʟʏ!!**\n\n**➻ ᴜsᴇ** `/ping` **ᴛᴏ ᴄʜᴇᴄᴋ ᴛʜᴇ ᴘɪɴɢ ᴏғ ᴛʜᴇ ʙᴏᴛ.**\n||©️ @SHASHANKDEVS||"
 HELP_BACK = [
 
     [
@@ -186,7 +186,7 @@ async def ping(client, message: Message):
         ms = (end-start).microseconds / 1000
         await message.reply_photo(
                              photo=START_IMG,
-                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [sʜɪᴠᴀɴsʜ](https://t.me/SHIVANSHDEVS)||**",
+                             caption=f"ʜᴇʏ ʙᴀʙʏ!!\n**[{BOT_NAME}](t.me/{BOT_USERNAME})** ɪꜱ ᴀʟɪᴠᴇ 🥀 ᴀɴᴅ ᴡᴏʀᴋɪɴɢ ꜰɪɴᴇ ᴡɪᴛʜ ᴘᴏɴɢ ᴏꜰ \n➥ `{ms}` ms\n\n**ᴍᴀᴅᴇ ᴡɪᴛʜ ❣️ ʙʏ || [sʜᴀsʜᴀɴᴋ](https://t.me/SHASHANKDEVS)||**",
                              reply_markup=InlineKeyboardMarkup(PNG_BTN),
        )
 
@@ -461,5 +461,5 @@ async def vickprivatesticker(client: Client, message: Message):
            if not Yo == "text":
                await message.reply_sticker(f"{hey}")
 
-print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ʙᴏᴛ ʙʏ sʜɪᴠᴀɴsʜ")      
+print(f"{BOT_NAME} ɪs ᴀʟɪᴠᴇ! ʙᴏᴛ ʙʏ sʜᴀsʜᴀɴᴋ")      
 Mukesh.run()
